@@ -1,7 +1,7 @@
 #include <stdio.h>
 /**
 * main-Entrypoint    
-* Return: 0 number
+* Return:0number
 */
 int main(void)
 {
