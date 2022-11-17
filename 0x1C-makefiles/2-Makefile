@@ -1,11 +1,6 @@
-CC	= gcc
-SRC	= main.c holberton.c
-OBJ	= $(patsubst %.c,%.o,$(SRC))
-NAME	= holberton
-
-.PHONY : all
-
+CC = gcc
+SRC = main.c school.c
+OBJ = $(SRC:.c=.o)
+	NAME = school
 all : $(OBJ)
-	$(CC) -o holberton $(OBJ)
-
-$(OBJ) : m.h
+	$(CC) $(OBJ) -o $(NAME)

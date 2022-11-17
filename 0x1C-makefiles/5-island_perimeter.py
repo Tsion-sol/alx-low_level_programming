@@ -1,36 +1,30 @@
 #!/usr/bin/python3
-
-"""
-Island Perimeter module
-"""
+"""Module that calculates the perimeter of an island in a grid."""
 
 
-def island_perimeter(grid):
-    """
-    islan_perimeter(grid)
+def num_water_neighbors(grid, i, j):
+    """Returns the number of water neighbors a cell has in a grid."""
 
-    Function that returns the perimeter of the island described in @grid
-    grid is a list of list of integers:
-    0 represents a water zone
-    1 represents a land zone
-    One cell is a square with side length 1
-    Grid cells are connected horizontally/vertically (not diagonally).
-    Grid is rectangular, width and height dont exceed 100
-    Grid is completely surrounded by water, and there's one island (or nothing)
-    The island doesnt have lakes.
-    """
-    if grid is None or grid == [] or grid == [[]]:
-        return 0
 
-    f_perim = sum([sum(r) for r in grid])
-    f_perim = f_perim * 4
-    rmv = 0
-    for r, row in enumerate(grid):
-        for c, col in enumerate(row):
-            if col == 1:
-                if (r - 1) >= 0 and grid[r - 1][c] == 1:
-                    rmv += 1
-                    if (c - 1) >= 0 and grid[r][c - 1] == 1:
-                        rmv += 1
-                        rmv = rmv * 2
-                        return f_perim - rmv
+    num = 0
+
+    if i <= 0 or not grid[i - 1][j]:
+        num += 1
+        if j <= 0 or not grid[i][j - 1]:
+            num += 1
+            if j >= len(grid[i]) - 1 or not grid[i][j + 1]:
+                num += 1
+                if i >= len(grid) - 1 or not grid[i + 1][j]:
+                    num += 1
+
+                    return num
+                def island_perimeter(grid):
+                    """Returns the perimeter of the island in grid."""
+
+                    perim = 0
+                    for i in range(len(grid)):
+                        for j in range(len(grid[i]))
+                        if grid[i][j]:
+                            perim += num_water_neighbors(grid, i, j)
+
+                            return perim
